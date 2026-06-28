@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Payment - UNIQUE ASTRO</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<h1>Complete Payment</h1>
+
+
+<div class="payment-box">
+
+
+<h2>Buy Tokens</h2>
+
+
+<p>
+Tokens:
+<span id="token"></span>
+</p>
+
+
+<p>
+Amount:
+₹<span id="price"></span>
+</p>
+
+
+<img 
+src="uniqueastro.png"
+width="250"
+>
+
+
+<h3>UPI ID</h3>
+
+<p>
+7850910953@ibl
+</p>
+
+
+
+
+<form action="https://formspree.io/f/mzdlryvw" method="POST">
+
+    <label>Name</label>
+    <input type="text" name="Name" placeholder="Enter Your Name" required>
+
+    <label>Mobile Number</label>
+    <input type="tel" name="Mobile Number" placeholder="Enter Mobile Number" required>
+
+    <label>Email ID</label>
+    <input type="email" name="Email" placeholder="Enter Email Address" required>
+
+    <button type="submit">Continue</button>
+
+</form>
+
+
+
+<input 
+type="hidden"
+name="tokens"
+id="formTokens">
+
+
+<input 
+type="hidden"
+name="amount"
+id="formAmount">
+
+
+
+<p>
+    <strong>📌 Important:</strong><br><br>
+
+    Once your payment is successfully completed and we receive the transaction notification, your purchased tokens will be credited to your registered email address by our team. This process usually takes only a few minutes.<br><br>
+
+    Before making the payment, please fill in your Name, Mobile Number, and Email ID, then click the <strong>Continue</strong> button. Your details will be securely sent to our team.<br><br>
+
+    After completing the payment, please click the <strong>Payment Done</strong> button so that we can verify your payment and update your tokens as quickly as possible.
+</p>
+
+</form>
+
+
+
+</div>
+
+<script>
+
+
+
+let token =
+localStorage.getItem("tokens");
+
+
+let price =
+localStorage.getItem("price");
+
+
+document.getElementById("token").innerHTML=token;
+
+document.getElementById("price").innerHTML=price;
+
+
+document.getElementById("formTokens").value=token;
+
+document.getElementById("formAmount").value=price;
+
+
+</script>
+
+<button type="button" onclick="paymentDone()">
+Payment Done
+</button>
+
+
+<script>
+
+function paymentDone(){
+
+window.location.href="success.html";
+
+}
+
+</script>
+</body>
+
+</html>
